@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 
 import obob.bean.File;
 import obob.dao.FileDao;
+import obob.service.FileService;
 	@Service("fileServiceImpl")
-	public class FileServiceImpl {
+	public class FileServiceImpl implements FileService{
 		@Autowired
 		private FileDao fileDao;
 		public File getFileById(Integer id){
-			return fileDao.getFileById(id);
+			return this.fileDao.getFileById(id);
 		}
 		public List<File> getFileList(){
 			return this.fileDao.getFileList();
